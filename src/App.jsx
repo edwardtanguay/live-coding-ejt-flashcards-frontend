@@ -34,7 +34,18 @@ function App() {
 	};
 
 	const handleDeleteButton = (e, flashcard) => {
-		alert('delete flashcard #' + flashcard.id);
+		axios
+			.delete(url + '/' + flashcard.id)
+			.then(function (response) {
+				console.log(response);
+				const _flashcards = flashcards.filter(
+					(m) => m.id !== flashcard.id
+				);
+				setFlashcards(_flashcards);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 	};
 
 	return (
