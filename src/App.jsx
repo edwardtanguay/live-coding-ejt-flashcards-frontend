@@ -13,7 +13,11 @@ function App() {
 
 	useEffect(() => {
 		(async () => {
-			setFlashcards((await axios.get(url)).data);
+			const _flashcards = (await axios.get(url)).data;
+			_flashcards.forEach((flashcard) => {
+				flashcard.editing = false;
+			});
+			setFlashcards(_flashcards);
 		})();
 	}, []);
 
@@ -46,6 +50,11 @@ function App() {
 			.catch(function (error) {
 				console.log(error);
 			});
+	};
+
+	const handleEditButton = (e, flashcard) => {
+		flashcard.editing = !flashcard.editing;
+		setFlashcards([...flashcards]);
 	};
 
 	return (
@@ -91,9 +100,16 @@ function App() {
 				{flashcards.map((flashcard, i) => {
 					return (
 						<div key={i} className="flashcard">
+							{!flashcard.editing ? (
+							<>
 							<div className="category">{flashcard.category}</div>
 							<div className="front">{flashcard.front}</div>
 							<div className="back">{flashcard.back}</div>
+							</>
+							) : (
+									<p>editing...</p>
+							)}
+							
 							<div className="buttonArea">
 								<button
 									className="delete"
@@ -103,7 +119,14 @@ function App() {
 								>
 									Delete
 								</button>
-								<button className="edit">Edit</button>
+								<button
+									className="edit"
+									onClick={(e) =>
+										handleEditButton(e, flashcard)
+									}
+								>
+									Edit
+								</button>
 							</div>
 						</div>
 					);

@@ -4,6 +4,6 @@
 - x list out flashcards as divs
 - x show buttons: delete, edit
 - .. make buttons work, edit
-
+	- add a property on flashcards: editing, default false
 
 - make experience with add button better
