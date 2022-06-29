@@ -6,6 +6,7 @@
 - x make buttons work, edit
 	- x add a property on flashcards: editing, default false
 - x save saves to database
-- .. other two fields 
-
-- make experience with add button better
+- x other two fields 
+- .. make experience with add button better
+	- x close modal automatically
+	- .. refresh flashcard state automatically

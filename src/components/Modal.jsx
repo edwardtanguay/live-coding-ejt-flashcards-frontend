@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const ModalBackground = styled.div`
@@ -24,19 +24,19 @@ const ModalBody = styled.div`
 	}
 `;
 
-const Modal = ({ children, buttonText }) => {
-	const [shouldShow, setShouldShow] = useState(false);
+const Modal = ({ children, buttonText, addFlashcardModalVisibility, setAddFlashcardModalVisibility }) => {
+	// const [shouldShow, setShouldShow] = useState(false);
 
 	return (
 		<div className="modal">
-			<button onClick={() => setShouldShow(true)}>{buttonText}</button>
+			<button onClick={() => setAddFlashcardModalVisibility(true)}>{buttonText}</button>
 
-			{shouldShow && (
-				<ModalBackground onClick={() => setShouldShow(false)}>
+			{addFlashcardModalVisibility && (
+				<ModalBackground onClick={() => setAddFlashcardModalVisibility(false)}>
 					<ModalBody onClick={(e) => e.stopPropagation()}>
 						<button
 							className="closeButton"
-							onClick={() => setShouldShow(false)}
+							onClick={() => setAddFlashcardModalVisibility(true)}
 						>
 							X
 						</button>
