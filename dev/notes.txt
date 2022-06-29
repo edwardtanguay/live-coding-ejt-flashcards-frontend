@@ -3,7 +3,7 @@
 - x add form to modal
 - x list out flashcards as divs
 - x show buttons: delete, edit
-- .. make buttons work
+- .. make buttons work, edit
 
 
 - make experience with add button better
