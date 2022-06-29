@@ -16,6 +16,7 @@ function App() {
 			const _flashcards = (await axios.get(url)).data;
 			_flashcards.forEach((flashcard) => {
 				flashcard.editing = false;
+				flashcard.originalFlashcard = { ...flashcard };
 			});
 			setFlashcards(_flashcards);
 		})();
@@ -52,8 +53,24 @@ function App() {
 			});
 	};
 
+	const handleSaveButton = (e, flashcard) => {
+		flashcard.editing = !flashcard.editing;
+		setFlashcards([...flashcards]);
+	};
+
 	const handleEditButton = (e, flashcard) => {
 		flashcard.editing = !flashcard.editing;
+		setFlashcards([...flashcards]);
+	};
+
+	const handleCancelButton = (e, flashcard) => {
+		flashcard.category = flashcard.originalFlashcard.category;
+		flashcard.editing = !flashcard.editing;
+		setFlashcards([...flashcards]);
+	};
+
+	const handleChangeCategory = (e, flashcard) => {
+		flashcard.category = e.target.value;
 		setFlashcards([...flashcards]);
 	};
 
@@ -101,33 +118,61 @@ function App() {
 					return (
 						<div key={i} className="flashcard">
 							{!flashcard.editing ? (
-							<>
-							<div className="category">{flashcard.category}</div>
-							<div className="front">{flashcard.front}</div>
-							<div className="back">{flashcard.back}</div>
-							</>
+								<>
+									<div className="category">
+										{flashcard.category}
+									</div>
+									<div className="front">
+										{flashcard.front}
+									</div>
+									<div className="back">{flashcard.back}</div>
+									<div className="buttonArea">
+										<button
+											className="delete"
+											onClick={(e) =>
+												handleDeleteButton(e, flashcard)
+											}
+										>
+											Delete
+										</button>
+										<button
+											className="edit"
+											onClick={(e) =>
+												handleEditButton(e, flashcard)
+											}
+										>
+											Edit
+										</button>
+									</div>
+								</>
 							) : (
-									<p>editing...</p>
+								<>
+									<input
+										value={flashcard.category}
+										onChange={(e) =>
+											handleChangeCategory(e, flashcard)
+										}
+									/>
+									<div className="buttonArea">
+										<button
+											className="saveEditFlashcard"
+											onClick={(e) =>
+												handleSaveButton(e, flashcard)
+											}
+										>
+											Save
+										</button>
+										<button
+											className="cancel"
+											onClick={(e) =>
+												handleCancelButton(e, flashcard)
+											}
+										>
+											Cancel
+										</button>
+									</div>
+								</>
 							)}
-							
-							<div className="buttonArea">
-								<button
-									className="delete"
-									onClick={(e) =>
-										handleDeleteButton(e, flashcard)
-									}
-								>
-									Delete
-								</button>
-								<button
-									className="edit"
-									onClick={(e) =>
-										handleEditButton(e, flashcard)
-									}
-								>
-									Edit
-								</button>
-							</div>
 						</div>
 					);
 				})}
