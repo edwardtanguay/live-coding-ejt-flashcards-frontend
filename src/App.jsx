@@ -55,7 +55,19 @@ function App() {
 
 	const handleSaveButton = (e, flashcard) => {
 		flashcard.editing = !flashcard.editing;
-		setFlashcards([...flashcards]);
+		axios
+			.put(url + '/' + flashcard.id, {
+				category: flashcard.category,
+				front: flashcard.front,
+				back: flashcard.back,
+			})
+			.then(function (response) {
+				console.log(response);
+				setFlashcards([...flashcards]);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
 	};
 
 	const handleEditButton = (e, flashcard) => {

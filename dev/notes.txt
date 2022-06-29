@@ -3,7 +3,8 @@
 - x add form to modal
 - x list out flashcards as divs
 - x show buttons: delete, edit
-- .. make buttons work, edit
-	- add a property on flashcards: editing, default false
+- x make buttons work, edit
+	- x add a property on flashcards: editing, default false
+- .. save saves to database
 
 - make experience with add button better
