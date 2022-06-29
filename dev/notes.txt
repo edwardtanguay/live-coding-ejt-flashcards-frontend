@@ -5,6 +5,7 @@
 - x show buttons: delete, edit
 - x make buttons work, edit
 	- x add a property on flashcards: editing, default false
-- .. save saves to database
+- x save saves to database
+- .. 
 
 - make experience with add button better

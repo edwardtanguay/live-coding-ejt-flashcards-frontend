@@ -11,13 +11,17 @@ function App() {
 	const [fieldFront, setFieldFront] = useState('');
 	const [fieldBack, setFieldBack] = useState('');
 
+	const applyDefaultValues = (_flashcards) => {
+		_flashcards.forEach((flashcard) => {
+			flashcard.editing = false;
+			flashcard.originalFlashcard = { ...flashcard };
+		});
+	};
+
 	useEffect(() => {
 		(async () => {
 			const _flashcards = (await axios.get(url)).data;
-			_flashcards.forEach((flashcard) => {
-				flashcard.editing = false;
-				flashcard.originalFlashcard = { ...flashcard };
-			});
+			applyDefaultValues(_flashcards);
 			setFlashcards(_flashcards);
 		})();
 	}, []);
@@ -63,6 +67,7 @@ function App() {
 			})
 			.then(function (response) {
 				console.log(response);
+				applyDefaultValues(flashcards);
 				setFlashcards([...flashcards]);
 			})
 			.catch(function (error) {
