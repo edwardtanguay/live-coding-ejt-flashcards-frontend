@@ -1,3 +1,4 @@
 - x load and show all flashcards
 - x create modal Create Flashcard
-- .. add form to modal
+- x add form to modal
+- .. list out flashcards as divs
