@@ -39,15 +39,6 @@ function App() {
 			<h1>Flashcards</h1>
 			<p>There are {flashcards.length} flashcards.</p>
 
-			{flashcards.map((flashcard, i) => {
-				return (
-					<div key={i} className="flashcard">
-						<div className="category">{flashcard.category}</div>
-						<div className="front">{flashcard.front}</div>
-						<div className="back">{flashcard.back}</div>
-					</div>
-				);
-			})}
 			<Modal buttonText="Add New Flashcard">
 				<h2>Add Flashcard</h2>
 				<form className="modalContent">
@@ -82,6 +73,17 @@ function App() {
 					</div>
 				</form>
 			</Modal>
+			<div className="flashcards">
+			{flashcards.map((flashcard, i) => {
+				return (
+					<div key={i} className="flashcard">
+						<div className="category">{flashcard.category}</div>
+						<div className="front">{flashcard.front}</div>
+						<div className="back">{flashcard.back}</div>
+					</div>
+				);
+			})}
+			</div>
 		</div>
 	);
 }

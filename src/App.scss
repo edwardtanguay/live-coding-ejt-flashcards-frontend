@@ -7,10 +7,15 @@ body {
     color: #000;
   }
 
-  .flashcard {
-    border: 1px solid #777;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #222;
+  .flashcards {
+    margin-top: 20px;
+
+    .flashcard {
+      border: 1px solid #777;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #222;
+    }
   }
+
 }
