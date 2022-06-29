@@ -1,1 +1,2 @@
-- .. load and show all flashcards
+- x load and show all flashcards
+- .. create react router with page: Create Flashcard
