@@ -19,7 +19,7 @@ function App() {
             <h1>Flashcards</h1>
             <p>There are {flashcards.length} flashcards.</p>
             <Modal>
-                <h2>Information</h2>
+                <h2>Add Flashcard</h2>
                 <section className="modalContent">
                     This is the information.
                 </section>

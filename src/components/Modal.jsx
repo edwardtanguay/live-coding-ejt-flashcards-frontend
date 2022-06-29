@@ -28,17 +28,11 @@ const Modal = ({ children }) => {
 	const [shouldShow, setShouldShow] = useState(false);
 
 	return (
-		<>
+		<div className="modal">
 			<button onClick={() => setShouldShow(true)}>
-				Show Information
+			Add Flashcard
 			</button>
 
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-				nostrum sint ex adipisci praesentium cumque necessitatibus
-				magnam animi dolores beatae harum tenetur, porro modi aliquid
-				quia dolorem architecto assumenda cupiditate.
-			</p>
 			{shouldShow && (
 				<ModalBackground onClick={() => setShouldShow(false)}>
 					<ModalBody onClick={(e) => e.stopPropagation()}>
@@ -52,13 +46,7 @@ const Modal = ({ children }) => {
 					</ModalBody>
 				</ModalBackground>
 			)}
-			<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-				nostrum sint ex adipisci praesentium cumque necessitatibus
-				magnam animi dolores beatae harum tenetur, porro modi aliquid
-				quia dolorem architecto assumenda cupiditate.
-			</p>
-		</>
+		</div>
 	);
 };
 
