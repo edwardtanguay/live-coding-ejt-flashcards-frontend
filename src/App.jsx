@@ -91,6 +91,16 @@ function App() {
 		setFlashcards([...flashcards]);
 	};
 
+	const handleChangeFront = (e, flashcard) => {
+		flashcard.front = e.target.value;
+		setFlashcards([...flashcards]);
+	};
+
+	const handleChangeBack = (e, flashcard) => {
+		flashcard.back = e.target.value;
+		setFlashcards([...flashcards]);
+	};
+
 	return (
 		<div className="App">
 			<h1>Flashcards</h1>
@@ -164,12 +174,36 @@ function App() {
 								</>
 							) : (
 								<>
-									<input
-										value={flashcard.category}
-										onChange={(e) =>
-											handleChangeCategory(e, flashcard)
-										}
-									/>
+									<div className="category">
+										Category:{' '}
+										<input
+											value={flashcard.category}
+											onChange={(e) =>
+												handleChangeCategory(
+													e,
+													flashcard
+												)
+											}
+										/>
+									</div>
+									<div className="front">
+										Front:{' '}
+										<input
+											value={flashcard.front}
+											onChange={(e) =>
+												handleChangeFront(e, flashcard)
+											}
+										/>
+									</div>
+									<div className="back">
+										Back:{' '}
+										<input
+											value={flashcard.back}
+											onChange={(e) =>
+												handleChangeBack(e, flashcard)
+											}
+										/>
+									</div>
 									<div className="buttonArea">
 										<button
 											className="saveEditFlashcard"
