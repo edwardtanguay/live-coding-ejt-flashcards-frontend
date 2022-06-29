@@ -80,6 +80,10 @@ function App() {
 						<div className="category">{flashcard.category}</div>
 						<div className="front">{flashcard.front}</div>
 						<div className="back">{flashcard.back}</div>
+						<div className="buttonArea">
+							<button className="delete">Delete</button>
+							<button className="edit">Edit</button>
+						</div>
 					</div>
 				);
 			})}
