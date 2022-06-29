@@ -2,4 +2,8 @@
 - x create modal Create Flashcard
 - x add form to modal
 - x list out flashcards as divs
-- .. show buttons: delete, edit
+- x show buttons: delete, edit
+- .. make buttons work
+
+
+- make experience with add button better
