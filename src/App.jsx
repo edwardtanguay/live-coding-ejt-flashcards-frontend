@@ -7,6 +7,7 @@ const url = 'http://localhost:3335/flashcards';
 
 function App() {
     const [flashcards, setFlashcards] = useState([]);
+    const [fieldCategory, setFieldCategory] = useState('');
 
     useEffect(() => {
         (async () => {
@@ -17,12 +18,13 @@ function App() {
     return (
         <div className="App">
             <h1>Flashcards</h1>
+            [{fieldCategory}]
             <p>There are {flashcards.length} flashcards.</p>
-            <Modal>
+            <Modal buttonText="Add New Flashcard">
                 <h2>Add Flashcard</h2>
-                <section className="modalContent">
-                    This is the information.
-                </section>
+                <form className="modalContent">
+                    Category: <input value={fieldCategory} onChange={(e) => setFieldCategory(e.target.value)}/> 
+                </form>
             </Modal>
         </div>
     );

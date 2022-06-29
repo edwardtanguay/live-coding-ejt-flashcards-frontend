@@ -24,14 +24,12 @@ const ModalBody = styled.div`
 	}
 `;
 
-const Modal = ({ children }) => {
+const Modal = ({ children, buttonText }) => {
 	const [shouldShow, setShouldShow] = useState(false);
 
 	return (
 		<div className="modal">
-			<button onClick={() => setShouldShow(true)}>
-			Add Flashcard
-			</button>
+			<button onClick={() => setShouldShow(true)}>{buttonText}</button>
 
 			{shouldShow && (
 				<ModalBackground onClick={() => setShouldShow(false)}>

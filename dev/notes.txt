@@ -1,2 +1,3 @@
 - x load and show all flashcards
-- .. create react router with page: Create Flashcard
+- x create modal Create Flashcard
+- .. add form to modal
