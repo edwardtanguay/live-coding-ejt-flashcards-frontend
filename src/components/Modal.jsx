@@ -24,19 +24,32 @@ const ModalBody = styled.div`
 	}
 `;
 
-const Modal = ({ children, buttonText, addFlashcardModalVisibility, setAddFlashcardModalVisibility }) => {
-	// const [shouldShow, setShouldShow] = useState(false);
+const Modal = ({
+	children,
+	buttonText,
+	addFlashcardModalVisibility,
+	setAddFlashcardModalVisibility,
+	clearAddFlashcardModalFormValues,
+}) => {
+	const handleCloseModal = () => {
+		clearAddFlashcardModalFormValues();
+		setAddFlashcardModalVisibility(false);
+	};
 
 	return (
 		<div className="modal">
-			<button onClick={() => setAddFlashcardModalVisibility(true)}>{buttonText}</button>
+			<button onClick={() => setAddFlashcardModalVisibility(true)}>
+				{buttonText}
+			</button>
 
 			{addFlashcardModalVisibility && (
-				<ModalBackground onClick={() => setAddFlashcardModalVisibility(false)}>
+				<ModalBackground
+					onClick={() => setAddFlashcardModalVisibility(false)}
+				>
 					<ModalBody onClick={(e) => e.stopPropagation()}>
 						<button
 							className="closeButton"
-							onClick={() => setAddFlashcardModalVisibility(true)}
+							onClick={() => handleCloseModal()}
 						>
 							X
 						</button>

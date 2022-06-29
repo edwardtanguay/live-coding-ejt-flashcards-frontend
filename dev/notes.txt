@@ -7,6 +7,8 @@
 	- x add a property on flashcards: editing, default false
 - x save saves to database
 - x other two fields 
-- .. make experience with add button better
+- x make experience with add button better
 	- x close modal automatically
-	- .. refresh flashcard state automatically
+	- x refresh flashcard state automatically
+- x fix modal x button
+- x fix modal x button to clear values

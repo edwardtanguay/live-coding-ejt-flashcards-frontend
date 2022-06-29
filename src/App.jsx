@@ -12,6 +12,12 @@ function App() {
 	const [fieldBack, setFieldBack] = useState('');
 	const [addFlashcardModalVisibility, setAddFlashcardModalVisibility] = useState(false);
 
+	const clearAddFlashcardModalFormValues = () => {
+		setFieldCategory('');
+		setFieldFront('');
+		setFieldBack('');
+	}
+
 	const applyDefaultValues = (_flashcards) => {
 		_flashcards.forEach((flashcard) => {
 			flashcard.editing = false;
@@ -112,7 +118,7 @@ function App() {
 			<h1>Flashcards</h1>
 			<p>There are {flashcards.length} flashcards.</p>
 
-			<Modal buttonText="Add New Flashcard" addFlashcardModalVisibility={addFlashcardModalVisibility} setAddFlashcardModalVisibility={setAddFlashcardModalVisibility} set>
+			<Modal buttonText="Add New Flashcard" addFlashcardModalVisibility={addFlashcardModalVisibility} setAddFlashcardModalVisibility={setAddFlashcardModalVisibility} clearAddFlashcardModalFormValues={clearAddFlashcardModalFormValues}>
 				<h2>Add Flashcard</h2>
 				<form className="modalContent">
 					<div className="row">
